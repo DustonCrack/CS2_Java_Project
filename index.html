@@ -508,8 +508,12 @@
     </div>
     <div class="account-icon" title="placeholder@email.com" onclick="toggleMenu()">P</div>
     <div class="account-menu" id="accountMenu" style="display:none;">
-      <div class="account-menu-item" onclick="logout()">Sign Out</div>
-    </div>
+  <div class="account-menu-item">✉️ placeholder@email.com</div>
+  <div class="account-menu-item" onclick="openProfile()">👤 Profile</div>
+  <div class="account-menu-item" onclick="openSubEmail()">➕ Create Sub-Email</div>
+  <hr style="border:none; border-top:1px solid #ddd;">
+  <div class="account-menu-item" onclick="logout()">🚪 Sign Out</div>
+</div>
   </div>
 
   <!-- BODY -->
@@ -606,6 +610,13 @@ function logout() {
   window.location.href = 'login.html';
 }
 
+function openProfile() {
+  alert('Profile settings coming soon!');
+}
+
+function openSubEmail() {
+  alert('Sub-email creation coming soon!');
+}
 
 
 
@@ -656,6 +667,7 @@ function logout() {
 
     document.querySelectorAll('.email-row').forEach((row, index) => {
       row.addEventListener('click', function () {
+        this.classList.remove('unread');
         currentEmail = emails[index];
         document.getElementById('emailPanel').innerHTML = `
           <div class="email-header">
