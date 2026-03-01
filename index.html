@@ -570,6 +570,11 @@
   </div>
 
   <script>
+
+    if (!sessionStorage.getItem('loggedIn')) {
+      window.location.href = 'login.html';
+    }
+
     const emails = [
       {
         sender: "Name1",
