@@ -521,7 +521,7 @@
         P
       </div>
       <div class="account-menu" id="accountMenu" style="display: none">
-        <div class="account-menu-item">✉️ placeholder@email.com</div>
+        <div class="account-menu-item"> placeholder@email.com</div>
         <div class="account-menu-item" onclick="openProfile()">👤 Profile</div>
         <div class="account-menu-item" onclick="openSubEmail()">
           Create Sub-Email
@@ -767,8 +767,19 @@
       }
 
       function closeCompose() {
-        document.getElementById("composeModal").classList.remove("open");
-      }
+  const body = document.getElementById("composeBody").value;
+  const subject = document.getElementById("composeSubject").value;
+  const to = document.getElementById("composeTo").value;
+
+  if (body || subject || to) {
+    const save = confirm("Save as draft?");
+    if (save) {
+      alert("Draft saved!");
+    }
+  }
+
+  document.getElementById("composeModal").classList.remove("open");
+}
 
       function showInbox() {
         document.querySelector(".inbox-tabs").style.display = "flex";
